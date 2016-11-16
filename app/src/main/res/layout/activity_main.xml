@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.test.lzw.appdemo.MainActivity">
+
+    <ImageView
+        android:id="@+id/home_page_bag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/home_page"/>
+
+    <LinearLayout
+        android:id="@+id/home_login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        >
+
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_name_txt" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_txt"
+            android:inputType="textPassword"
+            />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_login_txt"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <CheckBox
+                android:id="@+id/save_name_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="@string/auto_login"
+                android:textColor="#ec5b26"/>
+
+            <TextView
+                android:id="@+id/txt_forgetpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_password"
+                android:layout_marginTop="8dp"
+                android:paddingRight="5dp"
+                android:layout_alignParentRight="true"
+                android:textColor="#ec5b26"/>
+            <TextView
+                android:id="@+id/register_Id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/register"
+                android:layout_toLeftOf="@id/txt_forgetpass"
+                android:textColor="#ec5b26"  />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

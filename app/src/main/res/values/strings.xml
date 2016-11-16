@@ -1,0 +1,16 @@
+<resources>
+    <!-- MainActivity -->
+    <string name="app_name">MyApp</string>
+    <string name="login_name_txt">用户名</string>
+    <string name="auto_login">自动登录</string>
+    <string name="password_txt">密码</string>
+    <string name="btn_login_txt">登录</string>
+    <string name="register">注册</string>
+    <string name="forget_password">忘记密码?</string>
+
+    <!-- RegisterActivity -->
+    <string name="register_name_hint">输入用户名</string>
+    <string name="register_password_hint">输入密码</string>
+    <string name="btn_register_submit_txt">提交</string>
+
+</resources>
