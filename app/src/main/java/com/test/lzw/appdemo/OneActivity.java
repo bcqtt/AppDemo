@@ -1,5 +1,8 @@
 package com.test.lzw.appdemo;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,8 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +33,7 @@ import java.util.List;
 /**
  * Created by gionee on 2016/11/11.
  */
-public class OneActivity extends AppCompatActivity {
+public class OneActivity extends AppCompatActivity implements View.OnClickListener{
 
     private SQLiteDatabase db;
 
@@ -46,6 +51,11 @@ public class OneActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeLayout;
 
     private MyDbOpenHelper myDBHelper;
+
+    //view_two
+    private RelativeLayout viewTow;
+    private ImageButton messageBtn;
+    private ImageButton contactBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +82,9 @@ public class OneActivity extends AppCompatActivity {
 
         mGallery = (LinearLayout) swipeLayout.findViewById(R.id.id_gallery);
         vList.add(swipeLayout);
-        vList.add(li.inflate(R.layout.view_two,null,false));
+
+        viewTow = (RelativeLayout)li.inflate(R.layout.view_two,vpaperOne,false);
+        vList.add(viewTow);
         vList.add(li.inflate(R.layout.view_three,null,false));
         mAdapter = new MyPagerAdapter(vList);
         vpaperOne.setAdapter(mAdapter);
@@ -93,6 +105,12 @@ public class OneActivity extends AppCompatActivity {
                 new Thread(reflashThread).start();
             }
         });
+
+        //view_two的处理
+        messageBtn = (ImageButton)viewTow.findViewById(R.id.id_fragment_bottom_message);
+        contactBtn = (ImageButton)viewTow.findViewById(R.id.id_fragment_bottom_contact);
+        messageBtn.setOnClickListener(this);
+        contactBtn.setOnClickListener(this);
     }
 
     Handler reflashHandler = new Handler(){
@@ -201,4 +219,22 @@ public class OneActivity extends AppCompatActivity {
         }
     };
 
+
+
+    @Override
+    public void onClick(View v) {
+        FragmentManager fm = getFragmentManager();
+        // 开启Fragment事务
+        FragmentTransaction transaction = fm.beginTransaction();
+        switch (v.getId()){
+            case R.id.id_fragment_bottom_message:
+                Toast.makeText(OneActivity.this,"点击了消息按钮",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.id_fragment_bottom_contact:
+                Toast.makeText(OneActivity.this,"点击了通讯录按钮",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        // 事务提交
+        transaction.commit();
+    }
 }

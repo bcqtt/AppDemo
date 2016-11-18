@@ -29,6 +29,7 @@ public class AccountService {
             // 发送请求
             strFlag = HttpUtil.postRequest(url, map);  //POST方式
 //          strFlag = HttpUtil.getRequest(url);  //GET方式
+            //strFlag = "true";
             Log.d("服务器返回值", strFlag);
         } catch (Exception e) {
             e.printStackTrace();
