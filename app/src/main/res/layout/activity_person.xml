@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1a8730">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/person_home_bg">
+
+        <com.test.lzw.appdemo.extend.CircleImageView
+            android:id="@+id/id_person_header"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@drawable/header"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_person_header"
+            android:text="bcqtt"
+            android:gravity="center_horizontal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#b34903"/>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

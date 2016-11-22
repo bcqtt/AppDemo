@@ -1,13 +1,14 @@
 package com.test.lzw.appdemo.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
+import com.test.lzw.appdemo.PersonActivity;
 import com.test.lzw.appdemo.R;
 
 /**
@@ -25,9 +26,9 @@ public class TitleFragment extends Fragment {
         mLeftMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),
-                        "i am an ImageButton in TitleFragment ! ",
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), PersonActivity.class);
+                startActivity(intent);
             }
         });
         return view;
